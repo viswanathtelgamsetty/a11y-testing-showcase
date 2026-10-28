@@ -62,7 +62,6 @@ const quantity = ref(1);
 const activeTab = ref('overview');
 const showToast = ref(false);
 
-// Modal state
 const isModalOpen = ref(false);
 const reviewerName = ref('');
 const reviewerEmail = ref('');
@@ -80,7 +79,6 @@ const handleAddToCart = () => {
 
 const handleReviewSubmit = () => {
   if (!reviewerName.value.trim() || !reviewerEmail.value.trim() || !reviewText.value.trim()) {
-    // WCAG 3.3.1: Red border without error text or aria-invalid
     formErrors.value = true;
     return;
   }
@@ -98,13 +96,11 @@ const handleReviewSubmit = () => {
 
 <template>
   <main class="product-detail-main">
-    <!-- WCAG 4.1.3: Status alert without aria-live / role="status" -->
     <div v-if="showToast" class="cart-toast-banner">
       <span class="toast-icon">✓</span>
       <span class="toast-msg">Aura SoundMax Pro added to your cart!</span>
     </div>
 
-    <!-- WCAG 1.3.1: Breadcrumb constructed with unsemantic divs -->
     <div class="product-breadcrumbs">
       <span class="breadcrumb-item">Home</span>
       <span class="breadcrumb-divider">/</span>
@@ -113,17 +109,13 @@ const handleReviewSubmit = () => {
       <span class="breadcrumb-current">Aura SoundMax Pro</span>
     </div>
 
-    <!-- Main Grid: Gallery + Purchasing Column -->
     <div class="product-layout-grid">
-      <!-- Left Column: Media Gallery -->
       <div class="product-gallery-col">
         <div class="main-image-container">
-          <!-- WCAG 1.1.1: Image with generic alt="image" -->
           <img :src="selectedImage" alt="image" class="main-image" />
         </div>
 
         <div class="thumbnails-row">
-          <!-- WCAG 1.1.1: Missing alt attribute completely on thumbnails -->
           <div
             v-for="(img, idx) in PRODUCT_DATA.images"
             :key="idx"
@@ -135,27 +127,22 @@ const handleReviewSubmit = () => {
         </div>
       </div>
 
-      <!-- Right Column: Product Info & Purchase Options -->
       <div class="product-info-col">
-        <!-- WCAG 1.3.1: Heading Level Skip: h1 jumps straight to h4 -->
         <h1 class="product-title">{{ PRODUCT_DATA.name }}</h1>
         <h4 class="product-tagline">{{ PRODUCT_DATA.tagline }}</h4>
 
-        <!-- WCAG 1.1.1: Star rating rendered as raw text without aria-label -->
         <div class="rating-container">
           <span class="rating-stars">★★★★☆</span>
           <span class="rating-score">4.8</span>
           <span class="rating-count">({{ PRODUCT_DATA.reviewCount }} customer reviews)</span>
         </div>
 
-        <!-- Pricing -->
         <div class="pricing-box">
           <span class="price-current">${{ PRODUCT_DATA.price }}</span>
           <span class="price-original">${{ PRODUCT_DATA.originalPrice }}</span>
           <span class="price-badge">Save $50</span>
         </div>
 
-        <!-- WCAG 1.4.1: Stock status indicated solely by a colored dot with no text -->
         <div class="stock-status-row">
           <span class="stock-status-dot dot-green"></span>
           <span class="stock-status-text">In Stock & Ready to Ship</span>
@@ -163,7 +150,6 @@ const handleReviewSubmit = () => {
 
         <hr class="divider-line" />
 
-        <!-- Color Selection - WCAG 1.4.1, 2.1.1, 4.1.2: Custom div swatches -->
         <div class="color-section">
           <div class="section-label">Color: {{ selectedColor }}</div>
           <div class="swatches-list">
@@ -177,7 +163,6 @@ const handleReviewSubmit = () => {
           </div>
         </div>
 
-        <!-- Quantity Stepper - WCAG 2.1.1 & 4.1.2: Non-semantic div buttons -->
         <div class="quantity-section">
           <div class="section-label">Quantity:</div>
           <div class="stepper-box">
@@ -197,7 +182,6 @@ const handleReviewSubmit = () => {
           </div>
         </div>
 
-        <!-- Action Buttons -->
         <div class="action-buttons-group">
           <button
             type="button"
@@ -207,7 +191,6 @@ const handleReviewSubmit = () => {
             Add to Cart • ${{ (PRODUCT_DATA.price * quantity).toFixed(2) }}
           </button>
 
-          <!-- WCAG 2.4.4: Ambiguous button -->
           <button type="button" class="btn-buy-now">
             Buy Now
           </button>
@@ -222,7 +205,6 @@ const handleReviewSubmit = () => {
             ✍️ Write a Customer Review
           </button>
           <span class="action-dot">•</span>
-          <!-- WCAG 2.4.4: Ambiguous link -->
           <a href="#warranty" class="btn-text-link">
             Learn More
           </a>
@@ -230,7 +212,6 @@ const handleReviewSubmit = () => {
       </div>
     </div>
 
-    <!-- Tabs Interface - WCAG 4.1.2 & 2.1.1 & 2.4.3 -->
     <div class="product-tabs-wrapper">
       <div class="tabs-nav-bar">
         <a
@@ -257,7 +238,6 @@ const handleReviewSubmit = () => {
       </div>
 
       <div class="tab-panels-container">
-        <!-- Overview Panel -->
         <div :class="['tab-panel', activeTab === 'overview' ? 'panel-visible' : 'panel-ghost']">
           <h3 class="tab-heading">Architected for Acoustic Perfection</h3>
           <p class="tab-paragraph">
@@ -270,14 +250,12 @@ const handleReviewSubmit = () => {
             <li>✓ 55 hours continuous playback on single charge; fast charge gives 5 hours in 10 minutes</li>
           </ul>
           <div class="tab-links-row">
-            <!-- WCAG 2.4.4: Ambiguous links without context -->
             <a href="#download" class="ambiguous-link">Click Here</a>
             <a href="#manual" class="ambiguous-link">Download</a>
             <a href="#compare" class="ambiguous-link">Details</a>
           </div>
         </div>
 
-        <!-- Specifications Panel - WCAG 1.3.1: Div comparison table -->
         <div :class="['tab-panel', activeTab === 'specs' ? 'panel-visible' : 'panel-ghost']">
           <h3 class="tab-heading">Hardware Benchmark & Specifications</h3>
           
@@ -296,7 +274,6 @@ const handleReviewSubmit = () => {
           </div>
         </div>
 
-        <!-- Customer Reviews Panel -->
         <div :class="['tab-panel', activeTab === 'reviews' ? 'panel-visible' : 'panel-ghost']">
           <div class="reviews-header-strip">
             <div>
@@ -327,7 +304,6 @@ const handleReviewSubmit = () => {
       </div>
     </div>
 
-    <!-- Review Modal Dialog - WCAG 2.1.2 & 2.1.1 & 4.1.2 & 3.3.1 & 1.3.1 -->
     <div v-if="isModalOpen" class="modal-backdrop">
       <div class="modal-dialog-box">
         <div class="modal-header">
