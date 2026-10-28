@@ -7,10 +7,8 @@
     "dev:react": "cd react-a11y-app && npm run dev",
     "dev:vue": "cd vue-a11y-app && npm run dev",
     "dev:angular": "cd angular-a11y-app && npm start",
-    "build:all": "cd react-a11y-app && npm run build && cd ../vue-a11y-app && npm run build && cd ../angular-a11y-app && npm run build",
-    "audit:react": "cd react-a11y-app && npx axe-core",
-    "audit:vue": "cd vue-a11y-app && npx axe-core",
-    "audit:angular": "cd angular-a11y-app && npx axe-core"
+    "dev:svelte": "cd svelte-a11y-app && npm run dev",
+    "build:all": "cd react-a11y-app && npm run build && cd ../vue-a11y-app && npm run build && cd ../angular-a11y-app && npm run build && cd ../svelte-a11y-app && npm run build"
   },
   "keywords": [
     "accessibility",
@@ -19,7 +17,8 @@
     "axe-core",
     "react",
     "vue",
-    "angular"
+    "angular",
+    "svelte"
   ],
   "author": "",
   "license": "MIT"
