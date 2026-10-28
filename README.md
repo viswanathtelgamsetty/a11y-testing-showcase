@@ -9,11 +9,11 @@ A realistic, full-featured **E-Commerce Application** specifically engineered fo
 
 The identical e-commerce store experience and accessibility issues are implemented across all three major frameworks:
 
-| Framework | Command | Local Dev URL | Technology Stack |
-| :--- | :--- | :--- | :--- |
-| ⚛️ **React** | `npm run dev:react` | `http://localhost:5173` | React 19 + Vite + Axe-Core |
-| 🟢 **Vue 3** | `npm run dev:vue` | `http://localhost:5174` | Vue 3 (Composition API) + Vite + Axe-Core |
-| 🅰️ **Angular** | `npm run dev:angular` | `http://localhost:4200` | Angular 21 (Standalone Signals) + Axe-Core |
+| Framework | Standalone Repository | Command | Local Dev URL | Technology Stack |
+| :--- | :--- | :--- | :--- | :--- |
+| ⚛️ **React** | [react-a11y-ecommerce](https://github.com/viswanathtelgamsetty/react-a11y-ecommerce) | `npm run dev:react` | `http://localhost:5173` | React 19 + Vite + Axe-Core |
+| 🟢 **Vue 3** | [vue-a11y-ecommerce](https://github.com/viswanathtelgamsetty/vue-a11y-ecommerce) | `npm run dev:vue` | `http://localhost:5174` | Vue 3 (Composition API) + Vite + Axe-Core |
+| 🅰️ **Angular** | [angular-a11y-ecommerce](https://github.com/viswanathtelgamsetty/angular-a11y-ecommerce) | `npm run dev:angular` | `http://localhost:4200` | Angular 21 (Standalone Signals) + Axe-Core |
 
 To compile and verify all three production builds:
 ```bash
