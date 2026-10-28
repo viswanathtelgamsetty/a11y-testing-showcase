@@ -1,0 +1,26 @@
+{
+  "name": "a11y-testing-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Accessibility Testing Suite with Angular, React, and Vue - 10 Inaccessible vs Accessible components each with live Axe-Core audit",
+  "scripts": {
+    "dev:react": "cd react-a11y-app && npm run dev",
+    "dev:vue": "cd vue-a11y-app && npm run dev",
+    "dev:angular": "cd angular-a11y-app && npm start",
+    "build:all": "cd react-a11y-app && npm run build && cd ../vue-a11y-app && npm run build && cd ../angular-a11y-app && npm run build",
+    "audit:react": "cd react-a11y-app && npx axe-core",
+    "audit:vue": "cd vue-a11y-app && npx axe-core",
+    "audit:angular": "cd angular-a11y-app && npx axe-core"
+  },
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "axe-core",
+    "react",
+    "vue",
+    "angular"
+  ],
+  "author": "",
+  "license": "MIT"
+}
